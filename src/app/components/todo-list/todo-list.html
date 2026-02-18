@@ -18,10 +18,10 @@
 <div class="todos">
   @for (todo of todos; track todo.id) {
     <div
-      class="todo-row"
-      [style.background]="isPastDue(todo.date) ? 'lightcoral' : 'white'"
-      [class.even]="$even"
-    >
+        class="todo-row"
+        [class.even]="$even"
+        [class.past-due]="isPastDue(todo.date)"
+    >   
       <div class="title">{{ todo.title }}</div>
       <div class="status">{{ todo.status }}</div>
       @switch (todo.status) {

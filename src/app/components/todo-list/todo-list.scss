@@ -1,3 +1,213 @@
-.even {
-  background: lightyellow !important;
+$primary: #6c63ff;
+$danger: #ff6b6b;
+$success: #51cf66;
+$warning: #ffd43b;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: $primary;
+  font-size: 2rem;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.add-todo {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 20px rgba($primary, 0.15);
+  border-right: 5px solid $primary;
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  direction: rtl;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 160px;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #555;
+  }
+
+  input {
+    padding: 10px 14px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+
+    &:focus { border-color: $primary; }
+  }
+
+  button {
+    padding: 10px 28px;
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+
+    &:hover {
+      background: darken($primary, 10%);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.todo-row {
+  background: white;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  direction: rtl;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  &.even {
+    background: #bbb3ec;
+    border-right: 4px solid $primary;
+  }
+
+  &.past-due {
+    background: #ffcccc;
+    border-right: 4px solid $danger;
+  }
+
+  .title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d2d2d;
+  }
+
+  .date {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .status {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #f1f3f5;
+    color: #555;
+  }
+
+  div.actions {
+    display: flex;
+    gap: 8px;
+
+    button {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+
+      &:nth-child(1) { background: #d3f9d8; color: darken($success, 20%); }
+      &:nth-child(2) { background: #fff3bf; color: darken($warning, 30%); }
+      &:nth-child(3) { background: #ffe3e3; color: darken($danger, 20%); }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        opacity: 0.85;
+      }
+
+      &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  button.edit-btn {
+    padding: 6px 14px;
+    background: #e7f5ff;
+    color: #1971c2;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover { background: #d0ebff; }
+  }
+}
+
+.edit-form {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #dee2e6;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #777;
+  }
+
+  input {
+    padding: 8px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+
+    &:focus { border-color: $primary; }
+  }
+
+  button {
+    padding: 8px 18px;
+    background: $danger;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover { background: darken($danger, 10%); }
+  }
 }
