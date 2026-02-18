@@ -1,6 +1,20 @@
 
 <h1>ToDo List</h1>
 
+<div class="add-todo">
+  <div>
+    <label>Title</label>
+    <input type="text" [(ngModel)]="newTitle" />
+  </div>
+  <div>
+    <label>Expected Date</label>
+    <input type="date" [(ngModel)]="newDate" />
+  </div>
+  <div>
+    <button (click)="addTodo()">Add</button>
+  </div>
+</div>
+
 <div class="todos">
   @for (todo of todos; track todo.id) {
     <div

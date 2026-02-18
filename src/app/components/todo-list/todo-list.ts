@@ -48,5 +48,19 @@ openEdit(todo: Todo): void {
 closeEdit(): void {
   this.edited = undefined;
 }
+newTitle: string = '';
+newDate: string = '';
+
+addTodo(): void {
+  const todo: Todo = {
+    id: crypto.randomUUID(),
+    title: this.newTitle,
+    date: new Date(this.newDate),
+    status: TodoStatus.NotDone
+  };
+  this.todos.push(todo);
+  this.newTitle = '';
+  this.newDate = '';
+}
 }
   
