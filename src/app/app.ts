@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { TodoListComponent } from './components/todo-list/todo-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  standalone: true,
+  imports: [TodoListComponent],
+  template: `<app-todo-list></app-todo-list>`,
+  styles: [`
+    :host { display: block; min-height: 100vh; background: #f8fafc; }
+  `]
 })
-export class App {
-  protected readonly title = signal('lesson2');
-}
+export class App {}

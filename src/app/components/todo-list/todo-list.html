@@ -1,0 +1,25 @@
+
+<h1>ToDo List</h1>
+
+<div class="todos">
+  @for (todo of todos; track todo.id) {
+    <div
+      class="todo-row"
+      [style.background]="isPastDue(todo.date) ? 'lightcoral' : 'white'"
+      [class.even]="$even"
+    >
+      <div class="title">{{ todo.title }}</div>
+      <div class="status">{{ todo.status }}</div>
+      @switch (todo.status) {
+        @case (TodoStatus.Done) { <div>✓</div> }
+        @case (TodoStatus.NotDone) { <div>✗</div> }
+        @case (TodoStatus.InProgress) { <div>⏳</div> }
+      }
+      <div class="date">{{ todo.date | date:'dd/MM/yyyy' }}</div>
+      <div>{{ $last ? 'זוהי המשימה האחרונה שלך...' : '' }}</div>
+
+    </div>
+  } @empty {
+    <h2>No todos available</h2>
+  }
+</div>
