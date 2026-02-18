@@ -16,6 +16,23 @@
         @case (TodoStatus.InProgress) { <div>⏳</div> }
       }
       <div class="date">{{ todo.date | date:'dd/MM/yyyy' }}</div>
+      <div>
+        <button
+          (click)="updateStatus(todo, TodoStatus.Done)"
+          [disabled]="todo.status === TodoStatus.Done">
+          בוצע
+        </button>
+        <button
+          (click)="updateStatus(todo, TodoStatus.InProgress)"
+          [disabled]="todo.status === TodoStatus.InProgress">
+          בתהליך
+        </button>
+        <button
+          (click)="updateStatus(todo, TodoStatus.NotDone)"
+          [disabled]="todo.status === TodoStatus.NotDone">
+          לא בוצע
+        </button>
+      </div>
       <div>{{ $last ? 'זוהי המשימה האחרונה שלך...' : '' }}</div>
 
     </div>

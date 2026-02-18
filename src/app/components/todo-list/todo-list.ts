@@ -35,5 +35,8 @@ export class TodoListComponent {
   isPastDue(date: Date): boolean {
   return date < new Date();
 }
+  updateStatus(todo: Todo, status: TodoStatus): void {
+  todo.status = status;
+}
 }
   
