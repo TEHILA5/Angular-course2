@@ -33,6 +33,23 @@
           לא בוצע
         </button>
       </div>
+      @if (!isPastDue(todo.date)) {
+      <button (click)="openEdit(todo)">Edit</button>
+    }
+ 
+    @if (todo === edited) {
+      <div class="edit-form">
+        <div>
+          <label>Title</label>
+          <input type="text" [(ngModel)]="edited.title" />
+        </div>
+        <div>
+          <label>Expected Date</label>
+          <input type="date" [(ngModel)]="edited.date" />
+        </div>
+        <button (click)="closeEdit()">Close</button>
+      </div>
+    }
       <div>{{ $last ? 'זוהי המשימה האחרונה שלך...' : '' }}</div>
 
     </div>

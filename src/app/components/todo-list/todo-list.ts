@@ -38,5 +38,15 @@ export class TodoListComponent {
   updateStatus(todo: Todo, status: TodoStatus): void {
   todo.status = status;
 }
+  edited: Todo | undefined;
+
+openEdit(todo: Todo): void {
+  this.edited = todo;
+  this.edited.date = new Date(this.edited.date);
+}
+
+closeEdit(): void {
+  this.edited = undefined;
+}
 }
   
